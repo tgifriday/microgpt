@@ -1,23 +1,24 @@
 """
 The most atomic way to train and inference a GPT LLM in pure, dependency-free Python.
-Differences from GPT-2 are minor: rmsnorm instead of layer norm, no biases, square ReLU instead of GeLU nonlinearity, no weight tying.
+Differences from GPT-2 are minor: layer norm -> rmsnorm, no biases, GeLU -> square ReLU, no weight tying.
 The contents of this file is everything algorithmically needed to train a GPT. Everything else is just efficiency.
 Art project by @karpathy.
 """
 
 import os       # for os.path.exists
+import time     # for time.perf_counter
 import math     # for math.log, math.exp
 import random   # for random.seed, random.choices
 import argparse # for argparse.ArgumentParser
 
 # CLI arguments
 parser = argparse.ArgumentParser()
-parser.add_argument('--n_embd', type=int, default=16, help='Number of channels in the Transformer')
-parser.add_argument('--n_layer', type=int, default=1, help='Number of layers in the Transformer')
-parser.add_argument('--block_size', type=int, default=8, help='Maximum sequence length')
-parser.add_argument('--num_steps', type=int, default=1000, help='Number of training steps')
-parser.add_argument('--n_head', type=int, default=4, help='Number of attention heads in the Transformer')
-parser.add_argument('--learning_rate', type=float, default=1e-2, help='Learning rate')
+parser.add_argument('--n-embd', type=int, default=16, help='Number of channels in the Transformer')
+parser.add_argument('--n-layer', type=int, default=1, help='Number of layers in the Transformer')
+parser.add_argument('--block-size', type=int, default=8, help='Maximum sequence length')
+parser.add_argument('--num-steps', type=int, default=500, help='Number of training steps')
+parser.add_argument('--n-head', type=int, default=4, help='Number of attention heads in the Transformer')
+parser.add_argument('--learning-rate', type=float, default=1e-2, help='Learning rate')
 args = parser.parse_args()
 n_embd, block_size, n_layer, n_head = args.n_embd, args.block_size, args.n_layer, args.n_head
 head_dim = n_embd // n_head
@@ -195,6 +196,7 @@ v = [0.0] * len(params) # second moment
 
 # Training loop
 lossf_history = []
+t_start = time.perf_counter()
 for step in range(args.num_steps):
 
     # Take a single training document, tokenize it, surround it with BOS special token on both sides
@@ -224,16 +226,18 @@ for step in range(args.num_steps):
         p.data -= lr_t * m_hat / (v_hat ** 0.5 + eps_adam)
         p.grad = 0
 
-    print(f"step {step+1} / {args.num_steps} | loss {loss.data:.4f}")
     lossf_history.append(loss.data)
+    print(f"step {step+1:4d} / {args.num_steps:4d} | loss {loss.data:.4f}")
+print(f"mean loss last 50 steps: {sum(lossf_history[-50:]) / len(lossf_history[-50:]):.4f}") # ~usable for basic kwarg tuning
+print(f"training time: {time.perf_counter() - t_start:.2f}s") # ~usable for basic performance benchmarking
 
 # Inference: generate 5 samples
 temperature = 0.5 # number in (0, 1] that controls the "creativity" of generated text, low to high
-print("\n--- generation ---")
-for sample_idx in range(5):
+print("\n--- inference ---")
+for sample_idx in range(20):
     keys, values = [[] for _ in range(n_layer)], [[] for _ in range(n_layer)]
     token_id = BOS
-    print(f"sample {sample_idx}: ", end="")
+    print(f"sample {sample_idx+1}: ", end="")
     for pos_id in range(block_size):
         logits = gpt(token_id, pos_id, keys, values)
         probs = softmax([l / temperature for l in logits])
@@ -242,5 +246,3 @@ for sample_idx in range(5):
             break
         print(itos[token_id], end="")
     print()
-
-print(f"mean loss last 50 steps: {sum(lossf_history[-50:]) / len(lossf_history[-50:]):.4f}")
