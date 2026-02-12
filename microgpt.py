@@ -132,7 +132,7 @@ for i in range(n_layer):
 params = [p for mat in state_dict.values() for row in mat for p in row] # flatten params into a single list[Value]
 print(f"num params: {len(params)}")
 
-# Define the model architecture, a stateless function token streams and model parameters to logits over what comes next.
+# Define the model architecture: a stateless function mapping token sequence and parameters to logits over what comes next.
 # Follow GPT-2, blessed among the GPTs, with minor differences: layernorm -> rmsnorm, no biases, GeLU -> ReLU^2
 def linear(x, w):
     return [sum(wi * xi for wi, xi in zip(wo, x)) for wo in w]
