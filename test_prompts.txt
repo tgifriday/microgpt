@@ -1,0 +1,8 @@
+# Test prompts for comparing experiment results
+# One prompt per line. Lines starting with # are ignored.
+
+But God
+Love
+Obedience
+The Lord said
+The hour

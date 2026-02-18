@@ -1,0 +1,273 @@
+
+A module that was compiled using NumPy 1.x cannot be run in
+NumPy 2.2.6 as it may crash. To support both 1.x and 2.x
+versions of NumPy, modules must be compiled with NumPy 2.0.
+Some module may need to rebuild instead e.g. with 'pybind11>=2.12'.
+
+If you are a user of the module, the easiest solution will be to
+downgrade to 'numpy<2' or try to upgrade the affected module.
+We expect that some modules will need time to support NumPy 2.
+
+Traceback (most recent call last):  File "/home/klott/microgpt/microgpt-sh.py", line 26, in <module>
+    torch.manual_seed(42)
+  File "/home/klott/.local/lib/python3.10/site-packages/torch/random.py", line 46, in manual_seed
+    return default_generator.manual_seed(seed)
+Backend: PyTorch 2.0.1+cu118 on cuda (Tesla P40)
+Fetching text from 1 page(s)...
+  cached:   https://raw.githubusercontent.com/mxw/grmr/master/src/finaltests/bible.txt
+Fetched 1 page(s) successfully.
+
+num docs: 74940
+tokenizer: char
+vocab size: 80 (char-level)
+config: n_embd=64, n_head=8, n_layer=2, block_size=256
+num params: 124928
+
+Training for 10000 steps (batch_size=32) on cuda...
+step    1 / 10000 | loss 4.7874
+step   50 / 10000 | loss 2.2950
+step  100 / 10000 | loss 2.1496
+step  150 / 10000 | loss 1.9416
+step  200 / 10000 | loss 1.9175
+step  250 / 10000 | loss 1.7747
+step  300 / 10000 | loss 1.7737
+step  350 / 10000 | loss 1.7244
+step  400 / 10000 | loss 1.6617
+step  450 / 10000 | loss 1.5969
+step  500 / 10000 | loss 1.6370
+step  550 / 10000 | loss 1.5948
+step  600 / 10000 | loss 1.5232
+step  650 / 10000 | loss 1.6119
+step  700 / 10000 | loss 1.4996
+step  750 / 10000 | loss 1.5450
+step  800 / 10000 | loss 1.5732
+step  850 / 10000 | loss 1.5413
+step  900 / 10000 | loss 1.5925
+step  950 / 10000 | loss 1.5065
+step 1000 / 10000 | loss 1.4402
+step 1050 / 10000 | loss 1.4092
+step 1100 / 10000 | loss 1.4698
+step 1150 / 10000 | loss 1.5477
+step 1200 / 10000 | loss 1.5757
+step 1250 / 10000 | loss 1.4043
+step 1300 / 10000 | loss 1.4911
+step 1350 / 10000 | loss 1.4219
+step 1400 / 10000 | loss 1.4754
+step 1450 / 10000 | loss 1.4524
+step 1500 / 10000 | loss 1.4466
+step 1550 / 10000 | loss 1.3549
+step 1600 / 10000 | loss 1.5145
+step 1650 / 10000 | loss 1.4346
+step 1700 / 10000 | loss 1.5948
+step 1750 / 10000 | loss 1.4812
+step 1800 / 10000 | loss 1.3571
+step 1850 / 10000 | loss 1.3400
+step 1900 / 10000 | loss 1.3768
+step 1950 / 10000 | loss 1.4883
+step 2000 / 10000 | loss 1.3760
+step 2050 / 10000 | loss 1.3938
+step 2100 / 10000 | loss 1.3939
+step 2150 / 10000 | loss 1.4118
+step 2200 / 10000 | loss 1.4746
+step 2250 / 10000 | loss 1.3122
+step 2300 / 10000 | loss 1.3070
+step 2350 / 10000 | loss 1.4104
+step 2400 / 10000 | loss 1.4142
+step 2450 / 10000 | loss 1.3255
+step 2500 / 10000 | loss 1.3689
+step 2550 / 10000 | loss 1.3687
+step 2600 / 10000 | loss 1.2895
+step 2650 / 10000 | loss 1.3680
+step 2700 / 10000 | loss 1.2623
+step 2750 / 10000 | loss 1.3116
+step 2800 / 10000 | loss 1.4623
+step 2850 / 10000 | loss 1.2844
+step 2900 / 10000 | loss 1.3262
+step 2950 / 10000 | loss 1.3548
+step 3000 / 10000 | loss 1.3907
+step 3050 / 10000 | loss 1.3451
+step 3100 / 10000 | loss 1.3951
+step 3150 / 10000 | loss 1.2929
+step 3200 / 10000 | loss 1.3695
+step 3250 / 10000 | loss 1.3055
+step 3300 / 10000 | loss 1.3688
+step 3350 / 10000 | loss 1.3355
+step 3400 / 10000 | loss 1.2540
+step 3450 / 10000 | loss 1.3357
+step 3500 / 10000 | loss 1.3217
+step 3550 / 10000 | loss 1.2381
+step 3600 / 10000 | loss 1.2883
+step 3650 / 10000 | loss 1.3430
+step 3700 / 10000 | loss 1.2908
+step 3750 / 10000 | loss 1.2987
+step 3800 / 10000 | loss 1.3726
+step 3850 / 10000 | loss 1.4068
+step 3900 / 10000 | loss 1.2805
+step 3950 / 10000 | loss 1.3156
+step 4000 / 10000 | loss 1.2799
+step 4050 / 10000 | loss 1.2892
+step 4100 / 10000 | loss 1.2232
+step 4150 / 10000 | loss 1.2259
+step 4200 / 10000 | loss 1.3285
+step 4250 / 10000 | loss 1.2682
+step 4300 / 10000 | loss 1.3380
+step 4350 / 10000 | loss 1.3254
+step 4400 / 10000 | loss 1.2732
+step 4450 / 10000 | loss 1.2892
+step 4500 / 10000 | loss 1.3172
+step 4550 / 10000 | loss 1.2652
+step 4600 / 10000 | loss 1.2796
+step 4650 / 10000 | loss 1.2534
+step 4700 / 10000 | loss 1.2848
+step 4750 / 10000 | loss 1.2626
+step 4800 / 10000 | loss 1.2430
+step 4850 / 10000 | loss 1.1888
+step 4900 / 10000 | loss 1.2210
+step 4950 / 10000 | loss 1.2270
+step 5000 / 10000 | loss 1.2420
+step 5050 / 10000 | loss 1.3079
+step 5100 / 10000 | loss 1.2610
+step 5150 / 10000 | loss 1.1838
+step 5200 / 10000 | loss 1.2697
+step 5250 / 10000 | loss 1.3525
+step 5300 / 10000 | loss 1.3372
+step 5350 / 10000 | loss 1.2635
+step 5400 / 10000 | loss 1.2041
+step 5450 / 10000 | loss 1.2302
+step 5500 / 10000 | loss 1.1719
+step 5550 / 10000 | loss 1.2164
+step 5600 / 10000 | loss 1.1606
+step 5650 / 10000 | loss 1.3115
+step 5700 / 10000 | loss 1.2045
+step 5750 / 10000 | loss 1.2554
+step 5800 / 10000 | loss 1.1853
+step 5850 / 10000 | loss 1.2589
+step 5900 / 10000 | loss 1.2522
+step 5950 / 10000 | loss 1.2439
+step 6000 / 10000 | loss 1.2720
+step 6050 / 10000 | loss 1.2101
+step 6100 / 10000 | loss 1.2405
+step 6150 / 10000 | loss 1.2498
+step 6200 / 10000 | loss 1.1490
+step 6250 / 10000 | loss 1.2641
+step 6300 / 10000 | loss 1.1468
+step 6350 / 10000 | loss 1.1709
+step 6400 / 10000 | loss 1.3084
+step 6450 / 10000 | loss 1.2325
+step 6500 / 10000 | loss 1.1836
+step 6550 / 10000 | loss 1.2111
+step 6600 / 10000 | loss 1.1768
+step 6650 / 10000 | loss 1.2598
+step 6700 / 10000 | loss 1.2334
+step 6750 / 10000 | loss 1.1343
+step 6800 / 10000 | loss 1.2640
+step 6850 / 10000 | loss 1.1970
+step 6900 / 10000 | loss 1.2766
+step 6950 / 10000 | loss 1.1621
+step 7000 / 10000 | loss 1.1906
+step 7050 / 10000 | loss 1.2509
+step 7100 / 10000 | loss 1.2392
+step 7150 / 10000 | loss 1.1432
+step 7200 / 10000 | loss 1.1273
+step 7250 / 10000 | loss 1.2514
+step 7300 / 10000 | loss 1.2423
+step 7350 / 10000 | loss 1.2590
+step 7400 / 10000 | loss 1.1403
+step 7450 / 10000 | loss 1.1594
+step 7500 / 10000 | loss 1.2352
+step 7550 / 10000 | loss 1.1662
+step 7600 / 10000 | loss 1.1723
+step 7650 / 10000 | loss 1.2393
+step 7700 / 10000 | loss 1.1960
+step 7750 / 10000 | loss 1.1971
+step 7800 / 10000 | loss 1.2322
+step 7850 / 10000 | loss 1.2373
+step 7900 / 10000 | loss 1.1272
+step 7950 / 10000 | loss 1.1899
+step 8000 / 10000 | loss 1.2041
+step 8050 / 10000 | loss 1.1404
+step 8100 / 10000 | loss 1.1234
+step 8150 / 10000 | loss 1.1311
+step 8200 / 10000 | loss 1.2185
+step 8250 / 10000 | loss 1.1331
+step 8300 / 10000 | loss 1.1712
+step 8350 / 10000 | loss 1.1299
+step 8400 / 10000 | loss 1.1981
+step 8450 / 10000 | loss 1.1361
+step 8500 / 10000 | loss 1.1764
+step 8550 / 10000 | loss 1.1738
+step 8600 / 10000 | loss 1.1620
+step 8650 / 10000 | loss 1.0549
+step 8700 / 10000 | loss 1.1726
+step 8750 / 10000 | loss 1.1362
+step 8800 / 10000 | loss 1.1361
+step 8850 / 10000 | loss 1.1953
+step 8900 / 10000 | loss 1.1614
+step 8950 / 10000 | loss 1.0386
+step 9000 / 10000 | loss 1.1193
+step 9050 / 10000 | loss 1.1445
+step 9100 / 10000 | loss 1.1762
+step 9150 / 10000 | loss 1.1417
+step 9200 / 10000 | loss 1.1657
+step 9250 / 10000 | loss 1.1660
+step 9300 / 10000 | loss 1.0998
+step 9350 / 10000 | loss 1.1137
+step 9400 / 10000 | loss 1.0989
+step 9450 / 10000 | loss 1.1628
+step 9500 / 10000 | loss 1.1379
+step 9550 / 10000 | loss 1.1262
+step 9600 / 10000 | loss 1.2385
+step 9650 / 10000 | loss 1.1095
+step 9700 / 10000 | loss 1.1116
+step 9750 / 10000 | loss 1.3065
+step 9800 / 10000 | loss 1.1764
+step 9850 / 10000 | loss 1.1314
+step 9900 / 10000 | loss 1.1131
+step 9950 / 10000 | loss 1.1465
+step 10000 / 10000 | loss 1.0940
+
+Final loss: 1.0940
+
+--- inference (hallucinated text from the learned corpus) ---
+sample  1: strangers are the field, and the sword of the LORD with a woman, and
+sample  2: his father, and have should not asked the children of Israel and
+sample  3: of the commandments of the children of Israel.
+sample  4: the sight in all the congregation of the seven of the LORD thy God of
+sample  5: 14:16 And they said the LORD of the people at the sea, and his father,
+sample  6: because of the church, the sword of the king that were not be that
+sample  7: and said, Since, As the hath served the sin of Jacob, and the son of
+sample  8: the king said, Why have seen the LORD thy God that hath spoiled the
+sample  9: and the south of the LORD shall be mine reigned upon the streets, and
+sample 10: the people, and the second of the city with the same stood of the
+sample 11: destroy the wickedness and said, The LORD said unto him, What have he
+sample 12: 25:3 And there was the people, and be said unto him, I have made by
+sample 13: the seat of the LORD thy God.
+sample 14: and the midst of the children of Israel; and the LORD thy God of Israe
+sample 15: thou shalt be of the children of Israel, the found of the LORD, that
+sample 16: man will cast in the sight of the day of the LORD hath peace offering
+sample 17: 20:2 Then said the LORD God of Israel against Jerusalem; and I will
+sample 18: 20:11 And the children of Israel shall be good all the earth, and
+sample 19: 5:5 And the sons of Bethaniah the son of Jerusalem the son of Ammon,
+sample 20: 19:17 And thou shalt not be stranger the people were an heavens of the
+
+============================================================
+Running 5 test prompts from: test_prompts.txt
+============================================================
+
+[1/5] Prompt: But God
+  Output: But God of the LORD hath sent to the thirty shall be good in the house
+
+[2/5] Prompt: Love
+  Output: Love he will be strangers to and shall please the children of Israel
+
+[3/5] Prompt: Obedience
+  Output: Obedience the priest shall be come to the wind of the bondman shall
+
+[4/5] Prompt: The Lord said
+  Output: The Lord said Joseph with Jesus, and the son of Judah and thy son,
+
+[5/5] Prompt: The hour
+  Output: The hour voice of the LORD is an hath sons, and the children of Israel
+
+============================================================
+All test prompts completed.

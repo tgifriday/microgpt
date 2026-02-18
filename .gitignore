@@ -1,0 +1,22 @@
+# Cache directories
+.microgpt_cache/
+__pycache__/
+*.pyc
+
+# Training logs (optional - uncomment if you don't want to commit these)
+# results_*.log
+
+# Training data files (optional - uncomment if these are large/generated)
+# input.txt
+# datainput.txt
+
+# Editor files
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
